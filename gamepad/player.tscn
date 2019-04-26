@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://gamepad/Node2D.gd" type="Script" id=2]
+
+[node name="icon" type="Sprite"]
+position = Vector2( 238, 131 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+nb_P = 1
+
+[node name="hit" type="ColorRect" parent="."]
+anchor_right = 0.99
+margin_left = 139.0
+margin_top = -7.0
+margin_right = 95.64
+margin_bottom = 3.0
+rect_pivot_offset = Vector2( 9.73, 4.54 )
+

@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://gamepad/player.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="text" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="text"]
+margin_left = 172.863
+margin_top = 44.4316
+margin_right = 365.863
+margin_bottom = 92.4316
+rect_scale = Vector2( 3.54937, 3.54937 )
+text = "use left analog to move
+use right analog to aim
+
+Press Left trigger 2 to \"shoot\" "
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="player_1" parent="Players" instance=ExtResource( 1 )]
+position = Vector2( 148.338, 532.656 )
+nb_P = 0
+
+[node name="player_2" parent="Players" instance=ExtResource( 1 )]
+position = Vector2( 939.833, 538.177 )
+rotation = -3.14159
+
+[node name="player_3" parent="Players" instance=ExtResource( 1 )]
+position = Vector2( 514.02, 538.876 )
+rotation = -1.57079
+nb_P = 2
+
