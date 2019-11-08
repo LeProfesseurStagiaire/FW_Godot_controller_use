@@ -15,13 +15,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Controller_use_FrameWork"
+config/name="Controller use Godot 2D"
 run/main_scene="res://gamepad/test_level.tscn"
 config/icon="res://5adbb4fc8b26e174840743.png"
 
-[autoload]
+[display]
 
-global_var="*res://global_var.gd"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [input]
 
@@ -67,7 +68,7 @@ restart={
 
 [locale]
 
-translations=PoolStringArray( "res://Scene/happy_bat_menu_translate.en.translation", "res://Scene/happy_bat_menu_translate.fr.translation" )
+translations=PoolStringArray(  )
 translation_remaps={
 
 }

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://soldier.png" type="Texture" id=1]
 [ext_resource path="res://gamepad/Node2D.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 24.532, 17.4201 )
 
 [node name="icon" type="Sprite"]
 position = Vector2( 238, 131 )
@@ -12,8 +15,31 @@ nb_P = 1
 [node name="hit" type="ColorRect" parent="."]
 anchor_right = 0.99
 margin_left = 139.0
-margin_top = -7.0
+margin_top = 0.489532
 margin_right = 95.64
-margin_bottom = 3.0
+margin_bottom = 10.4895
 rect_pivot_offset = Vector2( 9.73, 4.54 )
 
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 31.8998, 6.37997 )
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 1.82
+default_color = Color( 1, 0, 0, 0.768627 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 31.6578, 6.76187 )
+enabled = true
+cast_to = Vector2( 0, 0 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( 31.8998, 6.65735 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

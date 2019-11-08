@@ -1,34 +1,63 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://gamepad/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://gamepad/test_level.gd" type="Script" id=1]
+[ext_resource path="res://gamepad/player.tscn" type="PackedScene" id=2]
 
-[node name="Node2D" type="Node2D"]
+[node name="level" type="Node2D"]
+script = ExtResource( 1 )
 
 [node name="text" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="text"]
-margin_left = 172.863
-margin_top = 44.4316
-margin_right = 365.863
-margin_bottom = 92.4316
-rect_scale = Vector2( 3.54937, 3.54937 )
+margin_left = 272.17
+margin_top = 7.41924
+margin_right = 465.17
+margin_bottom = 72.4192
+rect_scale = Vector2( 2.41525, 2.41525 )
 text = "use left analog to move
-use right analog to aim
-
+use right analog to aims
 Press Left trigger 2 to \"shoot\" "
+align = 1
+
+[node name="score" type="Label" parent="text"]
+margin_top = 72.0767
+margin_right = 40.0
+margin_bottom = 86.0767
+rect_scale = Vector2( 3.63102, 3.63102 )
 
 [node name="Players" type="Node2D" parent="."]
 
-[node name="player_1" parent="Players" instance=ExtResource( 1 )]
-position = Vector2( 148.338, 532.656 )
+[node name="player_1" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 329.504, 304.738 )
 nb_P = 0
 
-[node name="player_2" parent="Players" instance=ExtResource( 1 )]
-position = Vector2( 939.833, 538.177 )
+[node name="player_2" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 708.019, 310.259 )
 rotation = -3.14159
 
-[node name="player_3" parent="Players" instance=ExtResource( 1 )]
-position = Vector2( 514.02, 538.876 )
+[node name="player_3" parent="Players" instance=ExtResource( 2 )]
+position = Vector2( 514.02, 310.958 )
 rotation = -1.57079
 nb_P = 2
 
+[node name="spawners" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="p1" type="Position2D" parent="spawners"]
+position = Vector2( 492.849, -56.4926 )
+
+[node name="p2" type="Position2D" parent="spawners"]
+position = Vector2( 1120.11, 317.527 )
+
+[node name="p3" type="Position2D" parent="spawners"]
+position = Vector2( 520.121, 675.963 )
+
+[node name="p4" type="Position2D" parent="spawners"]
+position = Vector2( -97.401, 253.242 )
+
+[node name="spawn" type="Timer" parent="spawners"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="spawners/spawn" to="." method="_on_spawn_timeout"]
